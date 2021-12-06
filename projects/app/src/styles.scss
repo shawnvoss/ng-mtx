@@ -1,0 +1,15 @@
+@use '@angular/material';
+@use '../../components/button/waiting/button-waiting.scss'; // TODO:
+
+@include material.core();
+
+$light-primary: material.define-palette(material.$indigo-palette);
+$light-accent: material.define-palette(material.$pink-palette);
+$light-theme: material.define-light-theme((
+ color: (
+   primary: $light-primary,
+   accent: $light-accent,
+ )
+));
+
+@include material.all-component-themes($light-theme);

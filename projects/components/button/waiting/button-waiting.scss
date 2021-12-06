@@ -1,0 +1,41 @@
+.mat-button,
+.mat-flat-button,
+.mat-stroked-button,
+.mat-raised-button,
+.mat-icon-button {
+  &.mat-button-waiting {
+    .mat-button-wrapper {
+      display: none;
+    }
+
+    .mat-waiting-container {
+      align-items: center;
+      display: flex;
+
+      &::before {
+        content: '\00a0';
+      }
+    }
+
+    &.mat-waiting-message {
+      .mat-message {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.mat-fab,
+.mat-mini-fab {
+  &.mat-button-waiting {
+    .mat-button-wrapper {
+      display: none !important;
+    }
+
+    .mat-spinner {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+    }
+  }
+}

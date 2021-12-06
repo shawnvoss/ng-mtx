@@ -1,0 +1,67 @@
+<div class="content" role="main">
+    <button mat-raised-button color="primary" (click)="setWaiting(true)">Start waiting</button>&nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="setWaiting(false)">Stop waiting</button><br>
+
+    <hr>
+
+    <button mat-raised-button waiting>Waiting Directive</button>&nbsp;&nbsp;
+    <button mat-raised-button waiting message="Loading">Waiting Directive w/ Message</button>&nbsp;&nbsp;
+    <button mat-raised-button waiting [message]="message">Waiting Directive w/ Message</button>
+
+    <hr>
+
+    <button mat-button [waiting]="waiting">Basic</button>&nbsp;&nbsp;
+    <button mat-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
+    <button mat-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
+    <button mat-button color="warn" [waiting]="waiting">Warn</button>&nbsp;&nbsp;
+    <button mat-button [waiting]="waiting" disabled>Disabled</button>
+
+    <hr>
+
+    <button mat-flat-button [waiting]="waiting">Basic Flat</button>&nbsp;&nbsp;
+    <button mat-flat-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
+    <button mat-flat-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
+    <button mat-flat-button color="warn" [waiting]="waiting">Warn</button>&nbsp;&nbsp;
+    <button mat-flat-button [waiting]="waiting" disabled>Disabled</button>
+
+    <hr>
+
+    <button mat-raised-button [waiting]="waiting">Basic Raised</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
+    <button mat-raised-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
+    <button mat-raised-button color="warn" [waiting]="waiting">Warn</button>&nbsp;&nbsp;
+    <button mat-raised-button [waiting]="waiting" disabled>Disabled</button>
+
+    <hr>
+
+    <button mat-stroked-button [waiting]="waiting">Basic Stroked</button>&nbsp;&nbsp;
+    <button mat-stroked-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
+    <button mat-stroked-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
+    <button mat-stroked-button color="warn" [waiting]="waiting">Warn</button>&nbsp;&nbsp;
+    <button mtx-button mat-button [waiting]="waiting" disabled>Disabled</button>
+
+    <hr>
+
+    <button mat-icon-button [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-icon-button color="primary" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-icon-button color="accent" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-icon-button color="warn" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-icon-button [waiting]="waiting" disabled><mat-icon>home</mat-icon></button>
+
+    <hr>
+
+    <button mat-fab [waiting]="waiting" message="Foo"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-fab color="primary" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-fab color="accent" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-fab color="warn" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-fab [waiting]="waiting" disabled><mat-icon>home</mat-icon></button>
+
+    <hr>
+
+    <button mat-mini-fab [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-mini-fab color="primary" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-mini-fab color="accent" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-mini-fab color="warn" [waiting]="waiting"><mat-icon>home</mat-icon></button>&nbsp;&nbsp;
+    <button mat-mini-fab [waiting]="waiting" disabled><mat-icon>home</mat-icon></button>
+
+</div>
