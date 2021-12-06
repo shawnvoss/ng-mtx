@@ -1,5 +1,6 @@
 @use '@angular/material';
 @use '../../components/button/waiting/button-waiting.scss'; // TODO:
+@use '../../components/button/rounded/button-rounded.scss'; // TODO:
 
 @include material.core();
 

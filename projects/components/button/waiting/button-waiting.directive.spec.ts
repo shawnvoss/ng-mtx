@@ -89,7 +89,7 @@ describe('MtxButtonWaitingDirective', () => {
       });
 
       it(`should not apply 'mat-waiting-message' class to host element`, () => {
-        expect(buttonElement).toBeTruthy();
+        expect(fab).toBeTruthy();
         expect(fab.classList.contains('mat-waiting-message')).toBeFalse();
       });
 
