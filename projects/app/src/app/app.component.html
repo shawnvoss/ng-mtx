@@ -4,14 +4,18 @@
 
     <hr>
 
-    <button mat-raised-button waiting>Waiting Directive</button>&nbsp;&nbsp;
-    <button mat-raised-button waiting message="Loading">Waiting Directive w/ Message</button>&nbsp;&nbsp;
-    <button mat-raised-button waiting [message]="message">Waiting Directive w/ Message</button>
+    <button mat-raised-button rounded waiting>Waiting Directive</button>&nbsp;&nbsp;
+    <button mat-raised-button rounded waiting message="Loading">Waiting Directive w/ Message</button>&nbsp;&nbsp;
+    <button mat-raised-button rounded waiting [message]="message">Waiting Directive w/ Message</button>
 
     <hr>
 
     <button mat-button [waiting]="waiting">Basic</button>&nbsp;&nbsp;
+    <button mat-button [waiting]="waiting" small>Small</button>&nbsp;&nbsp;
+    <button mat-button [waiting]="waiting" large>Large</button>&nbsp;&nbsp;
     <button mat-button [waiting]="waiting" rounded="true">Rounded</button>&nbsp;&nbsp;
+    <button mat-button [waiting]="waiting" rounded="true" small>Small Rounded</button>&nbsp;&nbsp;
+    <button mat-button [waiting]="waiting" rounded="true" large>Large Rounded</button>&nbsp;&nbsp;
     <button mat-button color="primary" [waiting]="waiting" rounded="true">Rounded</button>&nbsp;&nbsp;
     <button mat-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
     <button mat-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
@@ -21,7 +25,11 @@
     <hr>
 
     <button mat-flat-button [waiting]="waiting">Basic Flat</button>&nbsp;&nbsp;
+    <button mat-flat-button [waiting]="waiting" small>Small</button>&nbsp;&nbsp;
+    <button mat-flat-button [waiting]="waiting" large>Large</button>&nbsp;&nbsp;
     <button mat-flat-button [waiting]="waiting" rounded>Rounded</button>&nbsp;&nbsp;
+    <button mat-flat-button [waiting]="waiting" rounded small>Small Rounded</button>&nbsp;&nbsp;
+    <button mat-flat-button [waiting]="waiting" rounded large>Large Rounded</button>&nbsp;&nbsp;
     <button mat-flat-button color="primary" [waiting]="waiting" rounded="true">Rounded</button>&nbsp;&nbsp;
     <button mat-flat-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
     <button mat-flat-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
@@ -31,7 +39,11 @@
     <hr>
 
     <button mat-raised-button [waiting]="waiting">Basic Raised</button>&nbsp;&nbsp;
+    <button mat-raised-button [waiting]="waiting" small>Small</button>&nbsp;&nbsp;
+    <button mat-raised-button [waiting]="waiting" large>Large</button>&nbsp;&nbsp;
     <button mat-raised-button [waiting]="waiting" rounded>Rounded</button>&nbsp;&nbsp;
+    <button mat-raised-button [waiting]="waiting" rounded small>Small Rounded</button>&nbsp;&nbsp;
+    <button mat-raised-button [waiting]="waiting" rounded large>Large Rounded</button>&nbsp;&nbsp;
     <button mat-raised-button color="primary" [waiting]="waiting" rounded>Rounded</button>&nbsp;&nbsp;
     <button mat-raised-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
     <button mat-raised-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;
@@ -41,7 +53,11 @@
     <hr>
 
     <button mat-stroked-button [waiting]="waiting">Basic Stroked</button>&nbsp;&nbsp;
+    <button mat-stroked-button [waiting]="waiting" small>Small</button>&nbsp;&nbsp;
+    <button mat-stroked-button [waiting]="waiting" large>Large</button>&nbsp;&nbsp;
     <button mat-stroked-button [waiting]="waiting" rounded>Rounded</button>&nbsp;&nbsp;
+    <button mat-stroked-button [waiting]="waiting" rounded small>Small Rounded</button>&nbsp;&nbsp;
+    <button mat-stroked-button [waiting]="waiting" rounded large>Large Rounded</button>&nbsp;&nbsp;
     <button mat-stroked-button color="primary" [waiting]="waiting" rounded>Rounded</button>&nbsp;&nbsp;
     <button mat-stroked-button color="primary" [waiting]="waiting">Primary</button>&nbsp;&nbsp;
     <button mat-stroked-button color="accent" [waiting]="waiting">Accent</button>&nbsp;&nbsp;

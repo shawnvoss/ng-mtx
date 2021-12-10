@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../button';
+
+$button-height: map.get(button.$height, small);
+
+.mat-button,
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  &.mtx-button-small {
+    line-height: $button-height;
+
+    &.mat-stroked-button {
+      line-height: $button-height - 2px;
+    }
+  }
+}
