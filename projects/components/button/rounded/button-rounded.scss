@@ -4,6 +4,6 @@
 $button-height: map.get(button.$height, default);
 $border-radius: $button-height / 2;
 
-button.mat-button-rounded {
+button.mtx-button-rounded {
   border-radius: $border-radius;
 }

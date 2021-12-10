@@ -7,7 +7,7 @@ import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
              button[mat-stroked-button][rounded],
              button[mat-raised-button][rounded]`,
   host: {
-    '[class.mat-button-rounded]': 'rounded',
+    '[class.mtx-button-rounded]': 'rounded',
   },
 })
 export class MtxButtonRoundedDirective implements OnChanges {

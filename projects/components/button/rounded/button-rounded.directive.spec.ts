@@ -35,16 +35,16 @@ describe('MtxButtonRoundedDirective', () => {
   });
 
   describe('when non-circular style button', () => {
-    it(`should apply 'mat-button-rounded' class to host`, () => {
+    it(`should apply 'mtx-button-rounded' class to host`, () => {
       expect(buttonElement).toBeTruthy();
-      expect(buttonElement.classList.contains('mat-button-rounded')).toBe(true);
+      expect(buttonElement.classList.contains('mtx-button-rounded')).toBe(true);
     });
   });
 
   describe('when circular style button (e.g. floating action button)', () => {
-    it(`should not apply 'mat-waiting-message' class to host element`, () => {
+    it(`should not apply 'mtx-waiting-message' class to host element`, () => {
       expect(fabElement).toBeTruthy();
-      expect(fabElement.classList.contains('mat-waiting-message')).toBeFalse();
+      expect(fabElement.classList.contains('mtx-waiting-message')).toBeFalse();
     });
   });
 });

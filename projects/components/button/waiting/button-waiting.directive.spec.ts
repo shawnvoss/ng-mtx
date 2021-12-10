@@ -35,7 +35,7 @@ describe('MtxButtonWaitingDirective', () => {
 
   it(`should apply 'max-button-waiting' class to host`, () => {
     expect(buttonElement).toBeTruthy();
-    expect(buttonElement.classList.contains('mat-button-waiting')).toBe(true);
+    expect(buttonElement.classList.contains('mtx-button-waiting')).toBe(true);
   });
 
   it('should be disabled', () => {
@@ -44,8 +44,8 @@ describe('MtxButtonWaitingDirective', () => {
     expect(disabledAttribute).toBeTrue();
   });
 
-  it(`should have a child node with 'mat-waiting-container' class`, () => {
-    const waitingContainer = buttonElement.querySelector('.mat-waiting-container');
+  it(`should have a child node with 'mtx-waiting-container' class`, () => {
+    const waitingContainer = buttonElement.querySelector('.mtx-waiting-container');
 
     expect(waitingContainer).toBeTruthy();
   });
@@ -64,19 +64,19 @@ describe('MtxButtonWaitingDirective', () => {
       fixture.detectChanges();
     });
 
-    it(`should apply 'mat-waiting-message' class to host element`, () => {
+    it(`should apply 'mtx-waiting-message' class to host element`, () => {
       expect(buttonElement).toBeTruthy();
-      expect(buttonElement.classList.contains('mat-waiting-message')).toBeTrue();
+      expect(buttonElement.classList.contains('mtx-waiting-message')).toBeTrue();
     });
 
-    it(`should have a child node with 'mat-message' class`, () => {
-      const messageContainer = buttonElement.querySelector('.mat-message');
+    it(`should have a child node with 'mtx-message' class`, () => {
+      const messageContainer = buttonElement.querySelector('.mtx-message');
 
       expect(messageContainer).toBeTruthy();
     });
 
     it('should have expected message', () => {
-      const messageContainer = buttonElement.querySelector('.mat-message');
+      const messageContainer = buttonElement.querySelector('.mtx-message');
 
       expect(messageContainer?.textContent).toBe(expectedMessage);
     });
@@ -88,13 +88,13 @@ describe('MtxButtonWaitingDirective', () => {
         fab = fixture.debugElement.query(By.css('button.mat-fab')).nativeElement;
       });
 
-      it(`should not apply 'mat-waiting-message' class to host element`, () => {
+      it(`should not apply 'mtx-waiting-message' class to host element`, () => {
         expect(fab).toBeTruthy();
-        expect(fab.classList.contains('mat-waiting-message')).toBeFalse();
+        expect(fab.classList.contains('mtx-waiting-message')).toBeFalse();
       });
 
       it(`should not display a message`, () => {
-        const messageContainer = fab.querySelector('.mat-message');
+        const messageContainer = fab.querySelector('.mtx-message');
 
         expect(messageContainer).toBeFalsy();
       });

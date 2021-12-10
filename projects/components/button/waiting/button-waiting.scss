@@ -3,12 +3,12 @@
 .mat-stroked-button,
 .mat-raised-button,
 .mat-icon-button {
-  &.mat-button-waiting {
+  &.mtx-button-waiting {
     .mat-button-wrapper {
       display: none;
     }
 
-    .mat-waiting-container {
+    .mtx-waiting-container {
       align-items: center;
       display: flex;
 
@@ -17,8 +17,8 @@
       }
     }
 
-    &.mat-waiting-message {
-      .mat-message {
+    &.mtx-waiting-message {
+      .mtx-message {
         margin-left: 8px;
       }
     }
@@ -27,7 +27,7 @@
 
 .mat-fab,
 .mat-mini-fab {
-  &.mat-button-waiting {
+  &.mtx-button-waiting {
     .mat-button-wrapper {
       display: none !important;
     }

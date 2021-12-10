@@ -13,7 +13,7 @@ import { MatProgressSpinner, MatSpinner } from '@angular/material/progress-spinn
              button[mat-fab][waiting],
              button[mat-mini-fab][waiting]`,
   host: {
-    '[class.mat-button-waiting]': 'waiting',
+    '[class.mtx-button-waiting]': 'waiting',
   },
 })
 export class MtxButtonWaitingDirective implements OnChanges {
@@ -76,11 +76,11 @@ export class MtxButtonWaitingDirective implements OnChanges {
     }
 
     if (hasMessage) {
-      this.renderer.addClass(this.viewContainerRef.element.nativeElement, 'mat-waiting-message');
+      this.renderer.addClass(this.viewContainerRef.element.nativeElement, 'mtx-waiting-message');
       this.createMessage();
     } else if (!change.firstChange) {
       this.destroyMessage();
-      this.renderer.removeClass(this.viewContainerRef.element.nativeElement, 'mat-waiting-message');
+      this.renderer.removeClass(this.viewContainerRef.element.nativeElement, 'mtx-waiting-message');
     }
   }
 
@@ -94,7 +94,7 @@ export class MtxButtonWaitingDirective implements OnChanges {
     this.spinner.instance.color = this.color;
 
     this.waiterWrapper = this.renderer.createElement('span') as HTMLElement;
-    this.waiterWrapper.className = 'mat-waiting-container';
+    this.waiterWrapper.className = 'mtx-waiting-container';
 
     this.waiterWrapper.appendChild(this.spinner.instance._elementRef.nativeElement);
     this.renderer.appendChild(this.viewContainerRef.element.nativeElement, this.waiterWrapper);
@@ -113,7 +113,7 @@ export class MtxButtonWaitingDirective implements OnChanges {
   private createMessage() {
     if (!this.messageElement) {
       this.messageElement = this.renderer.createElement('span') as HTMLElement;
-      this.messageElement.className = 'mat-message';
+      this.messageElement.className = 'mtx-message';
       this.renderer.appendChild(this.waiterWrapper, this.messageElement);
     }
 
