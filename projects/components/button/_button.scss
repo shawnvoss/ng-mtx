@@ -1,3 +1,7 @@
+@use './button-base';
+
+// Waiting
+//
 .mat-button,
 .mat-flat-button,
 .mat-stroked-button,
@@ -38,4 +42,38 @@
       left: calc(50% - 12px);
     }
   }
+}
+
+// Rounded
+//
+button.mtx-button-rounded {
+  @include button-base.rounded-button(default);
+
+  &.mtx-button-small {
+    @include button-base.rounded-button(small);
+  }
+
+  &.mtx-button-large {
+    @include button-base.rounded-button(large);
+  }
+}
+
+// Small
+//
+.mat-button,
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  &.mtx-button-small {
+    @include button-base.button-size(small, 0.75);
+  }
+}
+
+// Large
+//
+.mat-button,
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  @include button-base.button-size(large);
 }

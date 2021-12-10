@@ -1,9 +1,0 @@
-@use 'sass:map';
-@use '../button';
-
-$button-height: map.get(button.$height, default);
-$border-radius: $button-height / 2;
-
-button.mtx-button-rounded {
-  border-radius: $border-radius;
-}

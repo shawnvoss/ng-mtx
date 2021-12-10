@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+$button-height: (
+  small: 24px,
+  default: 36px,
+  large: 48px,
+);
+
+@mixin rounded-button($size) {
+  border-radius: map.get($button-height, $size) / 2;
+}
+
+
+@mixin button-size($size, $spinner-scale: 1) {
+  &.mtx-button-#{$size} {
+    line-height: map.get($button-height, $size);
+
+    &.mat-stroked-button {
+      line-height: map.get($button-height, $size) - 2px;
+    }
+
+    @if ($spinner-scale != 1) {
+      .mat-spinner {
+        transform: scale($spinner-scale);
+      }
+    }
+  }
+}

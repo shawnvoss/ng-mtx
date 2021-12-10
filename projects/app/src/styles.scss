@@ -1,8 +1,5 @@
 @use '@angular/material';
-@use '../../components/button/waiting/button-waiting'; // TODO:
-@use '../../components/button/rounded/button-rounded'; // TODO:
-@use '../../components/button/small/button-small'; // TODO:
-@use '../../components/button/large/button-large'; // TODO:
+@use '../../components/components.index';
 
 @include material.core();
 
