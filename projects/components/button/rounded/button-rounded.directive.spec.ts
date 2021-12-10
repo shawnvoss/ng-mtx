@@ -42,9 +42,9 @@ describe('MtxButtonRoundedDirective', () => {
   });
 
   describe('when circular style button (e.g. floating action button)', () => {
-    it(`should not apply 'mtx-waiting-message' class to host element`, () => {
+    it(`should not apply 'mtx-button-rounded' class to host element`, () => {
       expect(fabElement).toBeTruthy();
-      expect(fabElement.classList.contains('mtx-waiting-message')).toBeFalse();
+      expect(fabElement.classList.contains('mtx-button-rounded')).toBeFalse();
     });
   });
 });
