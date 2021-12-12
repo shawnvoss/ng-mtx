@@ -11,7 +11,12 @@ import { MtxButtonWaitingDirective } from './button-waiting.directive';
 @Component({
   template: `
     <button mat-button waiting [message]="message">Button</button>
+    <button mat-flat-button waiting [message]="message">Flat Button</button>
+    <button mat-stroked-button waiting [message]="message">Stroked Button</button>
+    <button mat-raised-button waiting [message]="message">Raised Button</button>
+    <button mat-icon-button waiting [message]="message"></button>
     <button mat-fab waiting [message]="message"></button>
+    <button mat-mini-fab waiting [message]="message"></button>
   `,
 })
 class TestComponent {
@@ -22,81 +27,91 @@ describe('MtxButtonWaitingDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let buttonElement: HTMLElement;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-      imports: [CommonModule, MatCommonModule, MatButtonModule, MatProgressSpinnerModule],
-      declarations: [MtxButtonWaitingDirective, TestComponent],
-    }).createComponent(TestComponent);
-
-    fixture.detectChanges();
-
-    buttonElement = fixture.debugElement.query(By.css('button.mat-button')).nativeElement;
-  });
-
-  it(`should apply 'max-button-waiting' class to host`, () => {
-    expect(buttonElement).toBeTruthy();
-    expect(buttonElement.classList.contains('mtx-button-waiting')).toBe(true);
-  });
-
-  it('should be disabled', () => {
-    const disabledAttribute = coerceBooleanProperty(buttonElement.attributes.getNamedItem('disabled')?.value);
-
-    expect(disabledAttribute).toBeTrue();
-  });
-
-  it(`should have a child node with 'mtx-waiting-container' class`, () => {
-    const waitingContainer = buttonElement.querySelector('.mtx-waiting-container');
-
-    expect(waitingContainer).toBeTruthy();
-  });
-
-  it('should have progress spinner', () => {
-    const spinner = buttonElement.querySelector('mat-spinner');
-
-    expect(spinner).toBeTruthy();
-  });
-
-  describe('when there is a wait message', () => {
-    const expectedMessage = 'Loading';
-
-    beforeEach(() => {
-      fixture.componentInstance.message = expectedMessage;
-      fixture.detectChanges();
-    });
-
-    it(`should apply 'mtx-waiting-message' class to host element`, () => {
-      expect(buttonElement).toBeTruthy();
-      expect(buttonElement.classList.contains('mtx-waiting-message')).toBeTrue();
-    });
-
-    it(`should have a child node with 'mtx-message' class`, () => {
-      const messageContainer = buttonElement.querySelector('.mtx-message');
-
-      expect(messageContainer).toBeTruthy();
-    });
-
-    it('should have expected message', () => {
-      const messageContainer = buttonElement.querySelector('.mtx-message');
-
-      expect(messageContainer?.textContent).toBe(expectedMessage);
-    });
-
-    describe('except when button is round', () => {
-      let fab: HTMLElement;
-
+  [
+    { selector: 'mat-button' },
+    { selector: 'mat-flat-button' },
+    { selector: 'mat-stroked-button' },
+    { selector: 'mat-raised-button' },
+    { selector: 'mat-icon-button' },
+    { selector: 'mat-fab', round: true },
+    { selector: 'mat-mini-fab', round: true },
+  ].forEach((test) => {
+    describe(`On ${test.selector}`, () => {
       beforeEach(() => {
-        fab = fixture.debugElement.query(By.css('button.mat-fab')).nativeElement;
+        fixture = TestBed.configureTestingModule({
+          imports: [CommonModule, MatCommonModule, MatButtonModule, MatProgressSpinnerModule],
+          declarations: [MtxButtonWaitingDirective, TestComponent],
+        }).createComponent(TestComponent);
+
+        fixture.detectChanges();
+
+        buttonElement = fixture.debugElement.query(By.css(`button.${test.selector}`)).nativeElement;
       });
 
-      it(`should not apply 'mtx-waiting-message' class to host element`, () => {
-        expect(fab).toBeTruthy();
-        expect(fab.classList.contains('mtx-waiting-message')).toBeFalse();
+      it(`should apply 'max-button-waiting' class to host`, () => {
+        expect(buttonElement).toBeTruthy();
+        expect(buttonElement.classList.contains('mtx-button-waiting')).toBe(true);
       });
 
-      it(`should not display a message`, () => {
-        const messageContainer = fab.querySelector('.mtx-message');
+      it('should be disabled', () => {
+        const disabledAttribute = coerceBooleanProperty(buttonElement.attributes.getNamedItem('disabled')?.value);
 
-        expect(messageContainer).toBeFalsy();
+        expect(disabledAttribute).toBeTrue();
+      });
+
+      it(`should have a child node with 'mtx-waiting-container' class`, () => {
+        const waitingContainer = buttonElement.querySelector('.mtx-waiting-container');
+
+        expect(waitingContainer).toBeTruthy();
+      });
+
+      it('should have progress spinner', () => {
+        const spinner = buttonElement.querySelector('mat-spinner');
+
+        expect(spinner).toBeTruthy();
+      });
+
+      describe('when there is a wait message', () => {
+        const expectedMessage = 'Loading';
+
+        beforeEach(() => {
+          fixture.componentInstance.message = expectedMessage;
+          fixture.detectChanges();
+        });
+
+        if (test.round) {
+          describe('when button is round', () => {
+            it(`should not apply 'mtx-waiting-message' class to host element`, () => {
+              expect(buttonElement).toBeTruthy();
+              expect(buttonElement.classList.contains('mtx-waiting-message')).toBeFalse();
+            });
+
+            it(`should not display a message`, () => {
+              const messageContainer = buttonElement.querySelector('.mtx-message');
+
+              expect(messageContainer).toBeFalsy();
+            });
+          });
+        } else {
+          describe('when button is not round', () => {
+            it(`should apply 'mtx-waiting-message' class to host element`, () => {
+              expect(buttonElement).toBeTruthy();
+              expect(buttonElement.classList.contains('mtx-waiting-message')).toBeTrue();
+            });
+
+            it(`should have a child node with 'mtx-message' class`, () => {
+              const messageContainer = buttonElement.querySelector('.mtx-message');
+
+              expect(messageContainer).toBeTruthy();
+            });
+
+            it('should have expected message', () => {
+              const messageContainer = buttonElement.querySelector('.mtx-message');
+
+              expect(messageContainer?.textContent).toBe(expectedMessage);
+            });
+          });
+        }
       });
     });
   });

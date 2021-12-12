@@ -8,7 +8,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MtxButtonLargeDirective } from './button-large.directive';
 
 @Component({
-  template: '<button mat-button large>Button</button>',
+  template: `
+    <button mat-button large>Button</button>
+    <button mat-flat-button large>Flat Button</button>
+    <button mat-stroked-button large>Stroked Button</button>
+    <button mat-raised-button large>Raised Button</button>
+  `,
 })
 class TestComponent {}
 
@@ -16,19 +21,23 @@ describe('MtxButtonLargeDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let buttonElement: HTMLElement;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-      imports: [CommonModule, MatCommonModule, MatButtonModule, MatProgressSpinnerModule],
-      declarations: [MtxButtonLargeDirective, TestComponent],
-    }).createComponent(TestComponent);
+  ['mat-button', 'mat-flat-button', 'mat-stroked-button', 'mat-raised-button'].forEach((selector) => {
+    describe(`On ${selector}`, () => {
+      beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+          imports: [CommonModule, MatCommonModule, MatButtonModule, MatProgressSpinnerModule],
+          declarations: [MtxButtonLargeDirective, TestComponent],
+        }).createComponent(TestComponent);
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    buttonElement = fixture.debugElement.query(By.css('button.mat-button')).nativeElement;
-  });
+        buttonElement = fixture.debugElement.query(By.css(`button.${selector}`)).nativeElement;
+      });
 
-  it(`should apply 'mtx-button-large' class to host`, () => {
-    expect(buttonElement).toBeTruthy();
-    expect(buttonElement.classList.contains('mtx-button-large')).toBe(true);
+      it(`should apply 'mtx-button-large' class to host`, () => {
+        expect(buttonElement).toBeTruthy();
+        expect(buttonElement.classList.contains('mtx-button-large')).toBe(true);
+      });
+    });
   });
 });

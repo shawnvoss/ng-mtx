@@ -10,41 +10,56 @@ import { MtxButtonRoundedDirective } from './button-rounded.directive';
 @Component({
   template: `
     <button mat-button rounded>Button</button>
+    <button mat-flat-button rounded>Flat Button</button>
+    <button mat-stroked-button rounded>Stroked Button</button>
+    <button mat-raised-button rounded>Raised Button</button>
+    <button mat-icon-button rounded></button>
     <button mat-fab rounded></button>
+    <button mat-mini-fab rounded></button>
   `,
 })
-class TestComponent {
-  message = '';
-}
+class TestComponent {}
 
 describe('MtxButtonRoundedDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let buttonElement: HTMLElement;
-  let fabElement: HTMLElement;
 
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-      imports: [CommonModule, MatCommonModule, MatButtonModule, MatProgressSpinnerModule],
-      declarations: [MtxButtonRoundedDirective, TestComponent],
-    }).createComponent(TestComponent);
+  [
+    { selector: 'mat-button' },
+    { selector: 'mat-flat-button' },
+    { selector: 'mat-stroked-button' },
+    { selector: 'mat-raised-button' },
+    { selector: 'mat-icon-button', round: true },
+    { selector: 'mat-fab', round: true },
+    { selector: 'mat-mini-fab', round: true },
+  ].forEach((test) => {
+    describe(`On ${test.selector}`, () => {
+      beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+          imports: [CommonModule, MatCommonModule, MatButtonModule, MatProgressSpinnerModule],
+          declarations: [MtxButtonRoundedDirective, TestComponent],
+        }).createComponent(TestComponent);
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    buttonElement = fixture.debugElement.query(By.css('button.mat-button')).nativeElement;
-    fabElement = fixture.debugElement.query(By.css('button.mat-fab')).nativeElement;
-  });
+        buttonElement = fixture.debugElement.query(By.css(`button.${test.selector}`)).nativeElement;
+      });
 
-  describe('when non-circular style button', () => {
-    it(`should apply 'mtx-button-rounded' class to host`, () => {
-      expect(buttonElement).toBeTruthy();
-      expect(buttonElement.classList.contains('mtx-button-rounded')).toBe(true);
-    });
-  });
-
-  describe('when circular style button (e.g. floating action button)', () => {
-    it(`should not apply 'mtx-button-rounded' class to host element`, () => {
-      expect(fabElement).toBeTruthy();
-      expect(fabElement.classList.contains('mtx-button-rounded')).toBeFalse();
+      if (test.round) {
+        describe('when circular style button (e.g. floating action button)', () => {
+          it(`should not apply 'mtx-button-rounded' class to host element`, () => {
+            expect(buttonElement).toBeTruthy();
+            expect(buttonElement.classList.contains('mtx-button-rounded')).toBeFalse();
+          });
+        });
+      } else {
+        describe('when non-circular style button', () => {
+          it(`should apply 'mtx-button-rounded' class to host`, () => {
+            expect(buttonElement).toBeTruthy();
+            expect(buttonElement.classList.contains('mtx-button-rounded')).toBe(true);
+          });
+        });
+      }
     });
   });
 });
